@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>BASIC</h1>
+    <h4>bno : <span th:text="${param.bno}"></span></h4>
+    <h4>bno : <span th:text="${bno}"></span></h4>
+    <div th:text="${name}"></div>
+    <div th:text="${dto}"></div>
+    <div th:utext="${'<h3>'+dto.first+'<h3>'}"></div>
+    <div th:text="${'<h3>'+dto.first+'<h3>'}"></div>
+    <ul>
+      <li>ID : <span th:text="${dto.id}"></span></li>
+      <li>FIRST : <span th:text="${dto.first}"></span></li>
+      <li>LAST : <span th:text="${dto.last}"></span></li>
+      <li>REGIME : <span th:text="${dto.regTime}"></span></li>
+
+      <h4>Sample Dto List4</h4>
+      <table>
+        <thead>
+          <tbody>
+            <tr th:each="dto, state :${list}">
+              <td  th:text="${state.index}"></td>
+              <td  th:text="${state.count}"></td>
+              <td  th:text="${state.size}"></td>
+              <td  th:text="${state.odd+'/'+$'state.even'}"></td>
+              <td  th:text="${dto.id}"></td>
+              <td  th:text="${dto.first}"></td>
+              <td  th:text="${dto.last}"></td>
+
+            </tr>
+          </tbody>
+        </thead>
+      </table>
+    </ul>
+  </body>
+</html>
